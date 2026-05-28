@@ -42,8 +42,9 @@ AI proposes and prioritizes possible solutions, deterministic tools verify them,
 
 
 
+<img src="reference-articles/human-in-the-loop-workflow.png" alt="Human-in-the-loop AI testing workflow">
 
-!\[Human-in-the-loop AI testing workflow](reference-articles/human-in-the-loop-workflow.png)
+
 
 \---
 
@@ -143,7 +144,9 @@ The stronger the claim of reliability, the stronger the evaluation evidence shou
 
 
 
-!\[Evaluation layers for AI-generated tests](reference-articles/evaluation-layers-ai-tests.png)
+<img src="reference-articles/evaluation-layers-ai-tests.png" alt="Evaluation layers for AI-generated tests">
+
+
 
 \---
 

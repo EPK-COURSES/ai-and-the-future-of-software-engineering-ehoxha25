@@ -184,7 +184,99 @@ Therefore, developers must carefully check AI-generated fixes. Human understandi
 
 
 
-## 6\. Work in Progress
+## 6\. AI in CI/CD Automation and Software Maintenance
+
+
+
+CI/CD pipelines are used to automate the process of building, testing, and deploying software. AI can support these pipelines by prioritizing tests, detecting risky commits, and recommending possible repairs before code is merged.
+
+
+
+For example, when a developer changes the code, AI may help determine which tests should run first. This is useful in very large projects, where running all tests after every small change can take too much time. AI can also support failure analysis by grouping similar errors or identifying whether a failure was caused by a real bug, an environment problem, or an unstable test.
+
+
+
+The analytical value of AI in CI/CD is that it can reduce waiting time and help teams focus on the most important tasks. In modern software projects, fast feedback is essential. If developers wait too long for test results, development slows down. AI can improve this process by highlighting possible failure causes or prioritizing tests.
+
+
+
+Another area where AI can support software engineering is maintenance. Maintenance includes fixing bugs after release, updating code, and improving software quality over time. Continuous fuzzing is one example of automated maintenance support. Fuzzing tools create many random or semi-random inputs to identify failures and vulnerabilities. Research on OSS-Fuzz bugs shows that continuous fuzzing can help discover real defects in open-source software projects (Ding \& Le Goues, 2021).
+
+
+
+The importance of fuzzing is that it can find unexpected failures that normal human-written tests may miss. Developers often test the expected behavior of a program, while fuzzing explores unusual inputs and edge cases. This makes it valuable for security and reliability testing.
+
+
+
+However, CI/CD automation must be handled carefully. If AI automatically approves code, skips important tests, or deploys changes without proper verification, serious problems may appear in production. For this reason, AI should mainly support recommendations, while final decisions about merging, releasing, or accepting fixes should still be handled by human reviews.
+
+
+
+\---
+
+
+
+## 7\. Reliability of AI-Generated Testing
+
+
+
+The reliability of AI-generated testing depends on the quality of the AI model, the quality of the code, and how the generated tests are evaluated. While code coverage is a popular evaluation measure, it is usually not enough. An evaluation can run multiple lines of code without verifying the program's correctness.
+
+
+
+Research on automated unit test generation shows that generated tests can improve coverage, but they may still fail to capture the real purpose of the program (Fraser \& Arcuri, 2014). Similarly, recent work on LLM-generated tests shows that models can produce useful test cases, but they still struggle with complex testing goals and may miss important edge cases (Wang et al., 2024). 
+
+
+
+As a result, reliability should be evaluated using several criteria. Code coverage can show if certain parts of the program were executed, but it cannot guarantee that the tests are valuable. Since it determines whether tests can identify man-made problems, mutation testing offers a more accurate assessment. According to Moradi Dakhel et al. (2023), generated tests may not be strong enough to detect minor code changes and, as a result, may not be able to catch genuine problems.
+
+
+
+The primary conclusion is that tests which are created by AI, should be treated only as drafts. While they indeed save time and may give developers a starting point, they must still check and review them. Good testing requires an understanding of business logic, user behavior, requirements and edge cases. These are fields where human judgement is still necessary.
+
+
+
+<img src="reference-articles/readiness-ai-use-cases-testing-automation.png" alt="Readiness of AI use cases in testing and automation" width="700">
+
+
+
+\---
+
+
+
+## 8\. Risks of Automation
+
+
+
+One major risk of AI automation is overdependence. If developers accept AI-generated tests or fixes without understanding them, they might lose important testing and debugging skills. This is dangerous because software engineers are still responsible for the software they deliver.
+
+
+
+In addition, another risk is the incorrect output because even though AI tools are able to generate tests that look correct, sometimes they do not check the right behavior. They can also generate fixes that pass the current test suite but do not solve the real problem(Martinez et al., 2017). This can be really dangerous given that the output may look professional even when it is wrong.
+
+
+
+A third risk is security. AI-generated code may contain vulnerabilities if it is not reviewed correctly and carefully by the professionals. Research on GitHub Copilot showed that AI-generated code can include insecure patterns, especially in security-sensitive scenarios (Pearce et al., 2022). In other words, these professionals should check AI suggestions and proposals for security problems before they are used in real life systems.
+
+
+
+Last but not least, the fourth risk is maintainability. In reality AI-generated tests or even fixes may be sometimes hard to understand and if developers add them without actually reviewing them, the projects can become harder to maintain. Hence, this would lead to the creation of  a technical debt, where short-term speed leads to long-term problems.
+
+
+
+On the whole, all these risks show that AI automation is not only a technical issue, but also an engineering responsibility issue. The question is not simply “Can AI generate something?” The better question is “Can the generated output be trusted, maintained and explained?” If the answer is no, then the output should not be accepted without revision.
+
+
+
+<img src="reference-articles/main-risks-ai-testing-debugging-automation.png" alt="Main risks of AI testing and debugging automation" width="700">
+
+
+
+\---
+
+
+
+## 9\. Work in Progress
 
 
 
@@ -192,13 +284,11 @@ The following sections will be added in the next updates:
 
 
 
-* CI/CD automation
-* Reliability of AI-generated testing
-* Risks of automation
 * Human supervision requirements
+* Overall analysis
 * Conclusion
 
 
 
-&#x20;                                       AI Testing, Debugging, and Automation
+&#x20;                                       
 

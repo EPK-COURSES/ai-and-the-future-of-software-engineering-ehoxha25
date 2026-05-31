@@ -5,8 +5,14 @@
 **Student:** Eda Hoxha  
 **Course:** SWE 101 — Introduction to Software Engineering  
 **Department:** Department of Computer Engineering, Epoka University  
-**Instructor:** Dr. Eng. Halit Vural  
-**Date:** May 27, 2026
+**Instructors:** Dr. Eng. Halit Vural 
+
+&#x20;            M. Sc. Stela Lila 
+
+&#x09;	
+Start **Date:** May 21, 2026
+
+**Finished:** May 31, 2026
 
 
 
@@ -63,8 +69,8 @@ This topic includes several related areas. The table below summarizes how AI sup
 |Testing|Generates unit tests, regression tests, and edge-case suggestions|Speeds up test creation|May produce shallow tests|
 |Bug detection|Ranks risky code and identifies possible vulnerabilities|Focuses developer attention|Can create false positives|
 |Debugging|Suggests causes and possible fixes|Reduces investigation time|Patch may be plausible but wrong|
-|CI/CD automation|Work in progress|Work in progress|Work in progress|
-|Maintenance|Work in progress|Work in progress|Work in progress|
+|CI/CD automation|Prioritizes tests and analyzes failed builds|Faster feedback loops|Unsafe if used without gates|
+|Maintenance|Supports regression prevention and fuzzing|Finds hidden defects over time|Requires continued upkeep|
 
 
 
@@ -84,7 +90,7 @@ The important point is that automated test generation is not valuable only becau
 
 
 
-In recent years, large language models have also been studied for test creation. These models can read source code and generate tests in a way that resembles tests written by humans. TESTEVAL evaluates large language models for test case generation and shows that LLMs can generate useful tests, but they still struggle with more difficult testing goals such as branch coverage and path coverage (Wang et al., 2024).
+In recent years, large language models have also been studied for test creation. These models can read source code and generate tests in a way that resembles tests written by humans. TESTEVAL evaluates large language models for test case generation and shows that LLMs can generate useful tests, but they still struggle with more difficult testing goals such as branch coverage and path coverage (Wang et al., 2025).
 
 
 
@@ -92,7 +98,7 @@ This finding is significant because branch and path coverage often require a dee
 
 
 
-Another important method is mutation testing. Mutation testing checks whether a test suite can detect small artificial errors. If the tests cannot detect these changes, the test suite may be weak. Research on LLM-based test generation with mutation testing shows that mutation feedback can improve the quality of generated tests because it helps identify weaknesses that simple code coverage may not reveal (Moradi Dakhel et al., 2023).
+Another important method is mutation testing. Mutation testing checks whether a test suite can detect small artificial errors. If the tests cannot detect these changes, the test suite may be weak. Research on LLM-based test generation with mutation testing shows that mutation feedback can improve the quality of generated tests because it helps identify weaknesses that simple code coverage may not reveal (Dakhel et al., 2024).
 
 
 
@@ -224,11 +230,11 @@ The reliability of AI-generated testing depends on the quality of the AI model, 
 
 
 
-Research on automated unit test generation shows that generated tests can improve coverage, but they may still fail to capture the real purpose of the program (Fraser \& Arcuri, 2014). Similarly, recent work on LLM-generated tests shows that models can produce useful test cases, but they still struggle with complex testing goals and may miss important edge cases (Wang et al., 2024). 
+Research on automated unit test generation shows that generated tests can improve coverage, but they may still fail to capture the real purpose of the program (Fraser \& Arcuri, 2014). Similarly, recent work on LLM-generated tests shows that models can produce useful test cases, but they still struggle with complex testing goals and may miss important edge cases (Wang et al., 2025).
 
 
 
-As a result, reliability should be evaluated using several criteria. Code coverage can show if certain parts of the program were executed, but it cannot guarantee that the tests are valuable. Since it determines whether tests can identify man-made problems, mutation testing offers a more accurate assessment. According to Moradi Dakhel et al. (2023), generated tests may not be strong enough to detect minor code changes and, as a result, may not be able to catch genuine problems.
+As a result, reliability should be evaluated using several criteria. Code coverage can show if certain parts of the program were executed, but it cannot guarantee that the tests are valuable. Since it determines whether tests can identify man-made problems, mutation testing offers a more accurate assessment. According to Dakhel et al. (2024), generated tests may not be strong enough to detect minor code changes and, as a result, may not be able to catch genuine problems.
 
 
 
@@ -276,19 +282,67 @@ On the whole, all these risks show that AI automation is not only a technical is
 
 
 
-## 9\. Work in Progress
+## 9\. Human supervision requirements
 
 
 
-The following sections will be added in the next updates:
+In this kind of AI supported software engineering, some supervision will still be needed. AI can give some suggestions but the engineer will have to focus on the problem definition, the result of these suggestions and to the decision taking. Indeed, human being will understand and remember the goals of the study, the user needs and business context better than an AI assistant.
 
 
 
-* Human supervision requirements
-* Overall analysis
-* Conclusion
+Human review is vital in testing and debugging, requiring the developers to have human evaluation on whether the tests generated are useful, the fixes are good, and whether the AI generated code adds bugs or security issues or just complicates the system.
 
 
 
-&#x20;                                       
+Human supervision is also important because software engineering includes trade-offs. Even though a fix may solve one bug, it can also make the system harder to understand. A test may increase coverage but make the test suite slower or more fragile. AI tools may not fully understand these trade-offs, so engineers must evaluate them. 
+
+
+
+In the AI future the engineering culture will be based upon an odd requirement for even better verification tool skills. Engineers will hardly build codes, theywill also check AI built codes, tests and bugs fixes. The most appreciated engineer in this case will be this one who will use the AI smartness with his human common sense.
+
+
+
+\---
+
+
+
+## 10\. Overall analysis
+
+
+
+The research shows that AI is strongest when the task is repetitive, measurable, and easy to validate. Examples include generating initial unit tests, detecting common bug patterns, prioritizing tests, identifying suspicious code, and suggesting fixes for known types of errors. In these cases, AI can save time and improve productivity. 
+
+
+
+But AI is much weaker for requirements, architecture, user expectation, security implications, etc. Many of the requirements for a system have context that is invisible to the code. For instance it would be trivial to train an AI system that would automatically produce a patch that would pass all tests but wouldn‘t understand what the feature provides or how our users depend on it.
+
+
+
+The ultimate answer could be Human-AI cooperation. The AI could give relevant information, highlight risks and the human could define goals, cross check the result and approve the final decision.
+
+
+
+This concludes overall the main question being asked in the assignment: what kind of software engineer will be needed in this new era of AI? Being a ‘good’ software engineer is not about being good at writing code (which is certainly a valuable skill), but about understanding systems, being able to weigh up the AI‘s suggestions, to test thoroughly and to think about the risks involved and the quality of the software.
+
+
+
+\---
+
+
+
+## 11\. Conclusion
+
+
+
+To conclude, AI is becoming an important part of software testing, debugging, automation, and maintenance. It is definitely producing test cases, forecasting possible bugs, helping debugging, recommending solutions and tuning CI/CD. This all saves time enabling to raise productivity levels.
+
+
+
+However, AI is not fully reliable on its own. AI generated tests cannot find out all edge cases, bug detection system may give false alarm, auto fixing system cannot be sure if the bug is fixed properly. AI generated code may have security and maintainability issues.
+
+
+
+In essence, the AI is to be supporting software engineers, not carrying on its shoulder their own responsibility. Principles of software engineering including quality, testing and debugging and security of software engineering should be learned by a future software engineer. AI can be speeding up the process of software engineering, but it still needs human inspection to make software safe, correct, and trustworthy.
+
+&#x20;
 
